@@ -22,7 +22,8 @@ set QUALITY="ebook"
 echo "  domyślna jakość przetwarzania: ${QUALITY}."   
 
 if ( -x ${GS} ) then
-   echo ""
+   echo "Program Ghostscript (gs) dostępny poprzez polecenie " $GS
+   echo "Systemowa ścieżka dostępu do polecenia gs " `which gs`
 else
    echo "Brakuje programu ${GS} (ghostscript), konieczne zainstalowanie."
    echo "$name - koniec skryptu."
@@ -30,34 +31,22 @@ else
    exit(1)
 endif
 
-if ( -x ${GS} ) then
-#   echo ""
-else
-   echo "Brakuje programu ${GS} (ghostscript), konieczne zainstalowanie."
-   echo "$name - koniec skryptu."
-   echo " "
-   exit(1)
-endif
 
 if ($#argv == 0) then
    echo "Podaj parametry: ./pdfconvert.sh [input].pdf [output].pdf [quality] "
    echo "(brakuje nazwy pliku wejściowego i wynikowego)."
    echo "$name - koniec skryptu."   
-#   echo "Domyślna jakość przetwarzania tekstu: $QUALITY"
    exit
 endif
 
 if ($#argv == 1) then
    echo "Podaj parametry: ./pdfconvert.sh [input].pdf [output].pdf [quality] "
-#   echo "Rozmiar pliku wejściowego:" $x "MB"
    echo "(brakuje nazwy pliku wynikowego)"
    echo "$name - koniec skryptu."   
-#   echo "Domyślna jakość przetwarzania tekstu: ${QUALITY}"   
    exit
 endif
 
 if ($#argv == 2) then
-   #echo "Podaj parametry: [input].pdf [output].pdf [quality] "
    if ( ${1} == ${2} ) then
       echo "Plik wynikowy [${2}] byłby nadpisany, podaj inną nazwę, niż [$1]."
       echo "echo "PDFconverter - koniec skryptu.""
@@ -86,7 +75,8 @@ endif
          
 echo "Przetwarzanie dokumentu $1.pdf do pliku $2.pdf z jakością [${QUALITY}]"
 echo "Proszę czekać ... "
-${GS} -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS="/${QUALITY}" -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${2}.pdf ${1}.pdf
+${GS} -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS="/${QUALITY}" \
+-dNOPAUSE -dQUIET -dBATCH -sOutputFile=${2}.pdf ${1}.pdf
 
 set sajzw = `stat -c '%s' $2.pdf`
 @ y = $sajzw / 1024 / 1024
@@ -94,7 +84,5 @@ set sajzw = `stat -c '%s' $2.pdf`
 
 echo "Rozmiar pliku wejściowego $x MB, rozmiar pliku wynikowego: $y MB "
 echo "Czynnik redukcji rozmiaru pliku $1.pdf wynosi ok. ${s}."
-#ls -la $1.pdf
-#ls -la $2.pdf
 echo "PDFconverter - koniec skryptu."
 echo " "
