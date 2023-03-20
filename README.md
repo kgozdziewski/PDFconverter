@@ -7,9 +7,9 @@ Skrypt redukuje rozmiar pliku PDF, ze zmienną jakością.
 Disclaimer: nie odpowiadam za możliwe szkody z powodu użycia programu.
 
  * Parametry: ./pdfconvert.sh [input].pdf [output].pdf [quality] "
-  [input] - prefix (nazwa bez .pdf) pliku źródłowego"
-  [output] - prefix (nazwa bez .pdf) pliku wynikowego"
-  [quality] - jakość przetwarzania, z listy:"
+   [input] - prefix (nazwa bez .pdf) pliku źródłowego"
+   [output] - prefix (nazwa bez .pdf) pliku wynikowego"
+   [quality] - jakość przetwarzania, z listy:"
      screen   (wersja ekranowa, 72 dpi, niska jakość)"
      ebook    (niska jakość, 150 dpi, jakość domyślna, przyzwoita)"
      printer  (wysoka jakość, 300 dpi)"
