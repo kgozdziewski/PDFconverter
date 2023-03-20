@@ -2,7 +2,6 @@
 
 A C shell script for converting PDF files to a smaller file size (note that the interface is currently in Polish).
  
-cho " "
 echo "Skrypt $name redukuje rozmiar pliku PDF, ze zmienną jakością."
 echo "(c) Krzysztof Goździewski, v 1.0 (2015-2019)"
 echo "Disclaimer: nie odpowiadam za możliwe szkody z powodu użycia programu."
