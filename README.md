@@ -2,9 +2,8 @@
 
 A C shell script for converting PDF files to a smaller file size (note that the interface is currently in Polish).
  
-Skrypt redukuje rozmiar pliku PDF, ze zmienną jakością.
-
-Disclaimer: nie odpowiadam za możliwe szkody z powodu użycia programu.
+    Skrypt redukuje rozmiar pliku PDF, ze zmienną jakością.
+    Disclaimer: nie odpowiadam za możliwe szkody z powodu użycia skryptu.
 
     * Użycie:  ./pdfconvert.sh [input].pdf [output].pdf [quality]
        
